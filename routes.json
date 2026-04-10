@@ -1,0 +1,49 @@
+{
+  "port": 8080,
+  "routes": [
+    {
+      "path": "/hello",
+      "method": "GET",
+      "response": {
+        "status": 200,
+        "body": "{\"message\": \"Hello, World!\"}"
+      }
+    },
+    {
+      "path": "/users",
+      "method": "GET",
+      "response": {
+        "status": 200,
+        "headers": {
+          "X-Total-Count": "2"
+        },
+        "body": "[{\"id\": 1, \"name\": \"Alice\"}, {\"id\": 2, \"name\": \"Bob\"}]"
+      }
+    },
+    {
+      "path": "/users",
+      "method": "POST",
+      "response": {
+        "status": 201,
+        "body": "{\"id\": 3, \"message\": \"ユーザーを作成しました\"}"
+      }
+    },
+    {
+      "path": "/slow",
+      "method": "GET",
+      "response": {
+        "status": 200,
+        "delay_ms": 500,
+        "body": "{\"message\": \"少し待ちました\"}"
+      }
+    },
+    {
+      "path": "/error",
+      "method": "GET",
+      "response": {
+        "status": 500,
+        "body": "{\"error\": \"Internal Server Error\"}"
+      }
+    }
+  ]
+}
